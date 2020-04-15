@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="MonthReport" table="monthReport">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+         <property name="createTime" type="java.util.Date" column="createTime"/>
+	     <property name="monthPay" type="java.lang.String" column="monthPay"/>
+	      <property name="monthIncome" type="java.lang.String" column="monthIncome"/>
+	       <property name="month"  column="month"/>
+	        <property name="monthPayCount"  column="monthPayCount"/>
+	         <property name="monthIncomeCount"  column="monthIncomeCount"/>
+	     <many-to-one name="district" column="district_id" class="District" lazy="false"></many-to-one>
+     </class>
+
+</hibernate-mapping>

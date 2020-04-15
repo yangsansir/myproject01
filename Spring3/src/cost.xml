@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <package name="cost"  namespace="/cost"  extends="default1">
+   <action name="addcostType" class="com.action.CostTypeAction" method="addcostType">
+   <result name="success">/cost/success.jsp</result>
+   </action>
+    <action name="getAllcostType" class="com.action.CostTypeAction" method="SelectCostType">
+   <result name="success">/employee/EmployeeRegiste.jsp</result>
+   </action>
+  
+    </package> 
+</struts>

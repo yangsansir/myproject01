@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="parkInformation"  namespace="/parkInformation"  extends="default1">
+   <action name="add" class="com.action.ParkInformationAction" method="addParkInformation">
+  <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.ParkInformationAction" method="findAll">
+   <result name="success">/ParkInformation/AllparkInformation.jsp</result>
+   </action>
+    <action name="delete" class="com.action.ParkInformationAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.ParkInformationAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.ParkInformationAction" method="findById">
+   <result name="success">/ParkInformation/updateparkInformation.jsp</result>
+   </action>
+    </package> 
+</struts>

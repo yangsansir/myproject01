@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="carPayment"  namespace="/carPayment"  extends="default1">
+     <action name="add" class="com.action.CarPaymentAction" method="add">
+   <result name="success">/carPayment/addcarPayment.jsp</result>
+   </action>
+     <action name="add1" class="com.action.CarPaymentAction" method="add1">
+   <result name="success">/goods/addgoods.jsp</result>
+   </action>
+    <action name="addCarPayment" class="com.action.CarPaymentAction" method="addCarPayment">
+   <result name="success">/carPayment/AllcarPayment.jsp</result>
+   </action>
+     <action name="findAll" class="com.action.CarPaymentAction" method="findAll">
+   <result name="success">/carPayment/AllcarPayment.jsp</result>
+   </action>
+     <action name="findAll1" class="com.action.CarPaymentAction" method="findAll">
+   <result name="success">/carPayment/AllcarPayment1.jsp</result>
+   </action>
+    <action name="delete" class="com.action.CarPaymentAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.CarPaymentAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update1" class="com.action.CarPaymentAction" method="update">
+   <result name="success" type="redirectAction">findAll1</result>
+   </action>
+   
+     <action name="findById" class="com.action.CarPaymentAction" method="findById">
+   <result name="success">/carPayment/UpcarPayment.jsp</result>
+   </action>
+   <action name="findById1" class="com.action.CarPaymentAction" method="findById">
+   <result name="success">/carPayment/UpcarPayment1.jsp</result>
+   </action>
+     
+    </package> 
+</struts>

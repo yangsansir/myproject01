@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="tsale"  namespace="/tsale"  extends="default1">
+    <action name="add" class="com.action.TsaleAction " method="add">
+   <result name="success">/tsale/addtsale.jsp</result>
+   </action>
+    <action name="addtsale" class="com.action.TsaleAction " method="addtsale">
+  <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.TsaleAction" method="findAll">
+   <result name="success">/tsale/alltsale.jsp</result>
+   </action>
+    <action name="delete" class="com.action.TsaleAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.TsaleAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.TsaleAction" method="findById">
+   <result name="success">/tsale/updatetsale.jsp</result>
+   </action>
+   </package>
+</struts>

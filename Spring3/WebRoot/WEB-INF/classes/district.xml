@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <package name="district"  namespace="/district"  extends="default1">
+   <action name="addDistrict" class="com.action.DistrictAction" method="addDistrict">
+   <result name="success">/district/success.jsp</result>
+   </action>
+  
+   <action name="findByDistrictId" class="com.action.DistrictAction" method="findByDistrictId">
+   <result type="json">
+				<param name="root">middleFloorSet</param>
+			</result>
+   </action>
+    <action name="delete" class="com.action.DistrictAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findAll" class="com.action.DistrictAction" method="findAll">
+      <result name="success" >/district/AllDistrict.jsp</result>
+  
+   </action>
+    <action name="update" class="com.action.DistrictAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.DistrictAction" method="findById">
+   <result name="success">/district/UpdateDistrict.jsp</result>
+   </action>
+    </package> 
+</struts>

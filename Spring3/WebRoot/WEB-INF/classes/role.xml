@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <package name="role"  namespace="/role"  extends="default1">
+   <action name="addRole" class="com.action.RoleAction" method="addRole">
+    <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="getAllRole" class="com.action.RoleAction" method="getAllRole">
+   <result name="success">/employee/EmployeeRegiste.jsp</result>
+   </action>
+    <action name="getAllRole1" class="com.action.RoleAction" method="getAllRole">
+   <result name="success">/function/AddFunction.jsp</result>
+   </action>
+     <action name="findAll" class="com.action.RoleAction" method="getAllRole">
+   <result name="success">/role/allRole.jsp</result>
+   </action>
+    <action name="getAllRole3" class="com.action.RoleAction" method="getAllRole">
+   <result name="success">/employee/Admin_success.jsp</result>
+   </action>
+    <action name="delete" class="com.action.RoleAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.RoleAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.RoleAction" method="findById">
+   <result name="success">/role/updateRole.jsp</result>
+   </action>
+    </package> 
+</struts>

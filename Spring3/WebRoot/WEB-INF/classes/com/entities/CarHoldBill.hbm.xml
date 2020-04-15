@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="CarHoldBill" table="carHoldBill">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     
+	    <property name="createTime" type="java.lang.String" column="createTime"/>
+	  
+	     
+	  <set name="carPaymentSet">
+	  <key column="carHoldBill_id"></key>
+	  <one-to-many class="CarPayment"/>
+	  
+	  </set>
+	 
+     </class>
+
+</hibernate-mapping>

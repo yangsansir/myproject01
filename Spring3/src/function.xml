@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <package name="function"  namespace="/function"  extends="default1">
+   <action name="addFunction" class="com.action.FunctionAction" method="addFunction">
+   <result type="redirectAction">findALL</result>
+   </action>
+   <action name="findALL" class="com.action.FunctionAction" method="findALL">
+   <result name="success">/function/AllFunction.jsp</result>
+   </action>
+    <action name="update" class="com.action.FunctionAction" method="update">
+   <result type="redirectAction">findALL</result>
+   </action>
+    <action name="delete" class="com.action.FunctionAction" method="delete">
+   <result type="redirectAction">findALL</result>
+   </action>
+    <action name="findById" class="com.action.FunctionAction" method="findById">
+    <result name="success">/function/UpdateFunction.jsp</result>
+   </action>
+    </package> 
+</struts>

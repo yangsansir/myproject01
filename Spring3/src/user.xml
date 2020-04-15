@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="user"  namespace="/user"  extends="default1">
+   <action name="adduser" class="com.action.UserAction" method="adduser">
+   <result name="success">/user/userlogin.jsp</result>
+   </action>
+     <action name="findById" class="com.action.UserAction" method="findById">
+   <result name="success">/user/upuser.jsp</result>
+   </action>
+   <action name="findById1" class="com.action.UserAction" method="findById">
+   <result name="success">/user/upuser1.jsp</result>
+   </action>
+     <action name="update1" class="com.action.UserAction" method="update">
+   <result name="success" type="redirectAction">findAll1</result>
+   </action>
+    <action name="update" class="com.action.UserAction" method="update">
+  <result name="success">/user/success.jsp</result>
+   </action>
+ 
+   <action name="findAll" class="com.action.UserAction" method="findAll">
+   <result name="success">/user/Alluser.jsp</result>
+   </action>
+    <action name="findAll1" class="com.action.UserAction" method="findAll">
+   <result name="success">/user/Alluser1.jsp</result>
+   </action>
+    <action name="Query" class="com.action.UserAction" method="Query">
+   <result name="success">/employee/QueryAllEmployee.jsp</result>
+   </action>
+    <action name="delete" class="com.action.UserAction" method="delete">
+   <result type="redirectAction">findAll</result>
+   </action>
+    <action name="login" class="com.action.UserAction" method="login">
+   <result name="success" type="redirectAction">${nextPose}</result>
+   <result name="error">/employee/error.jsp</result>
+   </action>
+   
+   <action name="admin" >
+   <result name="success">/user/Admin_success.jsp</result>
+   </action>
+   <action name="jh" >
+   <result name="success">/user/jh_success.jsp</result>
+   </action>
+   <action name="kc" >
+   <result name="success">/user/kc_success.jsp</result>
+   </action>
+     <action name="xs" >
+   <result name="success">/user/xs_success.jsp</result>
+   </action>
+    </package> 
+</struts>

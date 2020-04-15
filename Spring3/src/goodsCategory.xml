@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="goodsCategory"  namespace="/goodsCategory"  extends="default1">
+    <action name="add" class="com.action.GoodsCategoryAction" method="add">
+ <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.GoodsCategoryAction" method="findAll">
+   <result name="success">/goodsCategory/allgoodsCategory.jsp</result>
+   </action>
+    <action name="delete" class="com.action.GoodsCategoryAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.GoodsCategoryAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.GoodsCategoryAction" method="findById">
+   <result name="success">/goodsCategory/updateGoodsCategory.jsp</result>
+   </action>
+    </package> 
+</struts>
