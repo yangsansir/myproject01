@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      <hibernate-mapping package="com.entities">
+	  <class name="Messages" table="messages">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        
+	       <property name="CreateTime" type="java.util.Date" column="createTime"/>
+	        <property name="email" type="java.lang.String" column="email"/>
+	           <property name="Messages" type="java.lang.String" column="messages"/>
+	              <property name="telephone" type="java.lang.String" column="telephone"/>
+	                 <property name="contact" type="java.lang.String" column="contact"/>
+	  
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="carport"  namespace="/carport"  extends="default1">
+   <action name="add" class="com.action.CarTypeAction" method="addCarType">
+   <result name="success">/carport/success.jsp</result>
+   </action>
+   <action name="findAll" class="com.action.CarTypeAction" method="findAll">
+   <result>/ParkInformation/addParkInformation.jsp</result>
+   </action>
+   <action name="findAll1" class="com.action.CarTypeAction" method="findAll">
+   <result>/carport/AllCarType.jsp</result>
+   </action>
+   <action name="findAll2" class="com.action.CarTypeAction" method="findAll">
+   <result>/carPayment/addcarPayment.jsp</result>
+   </action>
+    <action name="browsePaging" class="com.action.CarTypeAction" method="browsePaging">
+   <result >/carport/AllCarType.jsp</result>
+   </action>
+    </package> 
+</struts>

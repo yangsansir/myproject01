@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      <hibernate-mapping package="com.entities">
+	  <class name="Customer" table="customer">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        
+	       <property name="customerName" type="java.util.Date" column="customerName"/>
+	        <property name="customerZone" type="java.lang.String" column="customerZone"/>
+	           <property name="companyPhone" type="java.lang.String" column="companyPhone"/>
+	              <property name="linkman" type="java.lang.String" column="linkman"/>
+	                 <property name="mobilePhone" type="java.lang.String" column="mobilePhone"/>
+	                 <property name="address" type="java.util.Date" column="address"/>
+	        <property name="zipCode" type="java.lang.String" column="zipCode"/>
+	           <property name="email" type="java.lang.String" column="email"/>
+	              <property name="remark" type="java.lang.String" column="remark"/>
+	              
+	  
+     </class>
+</hibernate-mapping>

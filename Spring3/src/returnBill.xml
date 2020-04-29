@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="returnBill"  namespace="/returnBill"  extends="default1">
+    <action name="add" class="com.action.ReturnBillAction " method="add">
+   <result name="success">/returnBill/addreturnBill.jsp</result>
+   </action>
+    <action name="addreturnBill" class="com.action.ReturnBillAction " method="addreturnBill">
+  <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.ReturnBillAction" method="findAll">
+   <result name="success">/returnBill/allreturnBill.jsp</result>
+   </action>
+    <action name="delete" class="com.action.ReturnBillAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.ReturnBillAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.ReturnBillAction" method="findById">
+   <result name="success">/returnBill/updatereturnBill.jsp</result>
+   </action>
+   </package>
+</struts>

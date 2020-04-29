@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="GoodsRepair" table="goodsRepair">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     <property name="goodsName" type="java.lang.String" column="goodsName"/>
+	     <property name="reason" type="java.lang.String" column="reason"/>
+	      <property name="repairCost"  column="repairCost"/>
+	   
+     </class>
+
+</hibernate-mapping>

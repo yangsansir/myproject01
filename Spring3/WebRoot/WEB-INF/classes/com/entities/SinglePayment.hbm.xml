@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      <hibernate-mapping package="com.entities">
+	  <class name="SinglePayment" table="singlePayment">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	      <property name="categoryName"  column="categoryName" />
+	   <property name="goodsName"  column="goodsName" />
+	     <property name="number"  column="number" />
+	     <property name="status"  column="status" />
+	  <many-to-one name="checkUser" column="checkUser_id" class="CheckUser"></many-to-one>
+	    <many-to-one name="houseHoldBill" column="houseHoldBill_id" class="HouseHoldBill" lazy="false" cascade="delete" ></many-to-one>
+     </class>
+
+</hibernate-mapping>

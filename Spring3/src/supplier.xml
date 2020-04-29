@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="supplier"  namespace="/supplier"  extends="default1">
+   
+    <action name="addsupplier" class="com.action.SupplierAction" method="addsupplier">
+  <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.SupplierAction" method="findAll">
+   <result name="success">/supplier/allsupplier.jsp</result>
+   </action>
+    <action name="delete" class="com.action.SupplierAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.SupplierAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.SupplierAction" method="findById">
+   <result name="success">/supplier/updatesupplier.jsp</result>
+   </action>
+   </package>
+</struts>

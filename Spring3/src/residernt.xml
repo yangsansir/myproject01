@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <package name="residernt"  namespace="/residernt"  extends="json-default">
+   <action name="addResidernt" class="com.action.ResiderntAction" method="addResidernt">
+   <result name="success">/success.jsp</result>
+   <result name="input">/user/success.jsp</result>
+   </action>
+    <action name="login" class="com.action.ResiderntAction" method="login">
+   <result name="success">/success.jsp</result>
+   <result name="input">/user/success.jsp</result>
+   </action>
+    <action name="SelectAllDistrict" class="com.action.ResiderntAction" method="SelectAllDistrict">
+   <result name="success">/register.jsp</result>
+   </action>
+    <action name="findAll" class="com.action.ResiderntAction" method="SelectAll">
+   <result name="success">/user/AllRsidernt.jsp</result>
+   </action>
+    <action name="update" class="com.action.ResiderntAction" method="update">
+   <result name="success">/success.jsp</result>
+   </action>
+    <action name="delete" class="com.action.ResiderntAction" method="delete">
+   <result name="success">/success.jsp</result>
+   </action>
+  <!--  <action name="SelectAllDistrict1" class="com.action.ResiderntAction" method="SelectAllDistrict">
+   <result name="success">/user/UpdateResidernt.jsp</result>
+   </action> -->
+    <action name="findById" class="com.action.ResiderntAction" method="findById">
+   <result name="success">/update.jsp</result>
+   </action>
+   <action name="findById1" class="com.action.ResiderntAction" method="findById">
+   <result name="success">/cost/addCost.jsp</result>
+   </action>
+   <action name="findByDistrictId" class="com.action.DistrictAction" method="findByDistrictId">
+   <result type="json">
+				<param name="root">middleFloors</param>
+			</result>
+   </action>
+    </package> 
+</struts>

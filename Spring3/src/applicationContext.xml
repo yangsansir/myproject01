@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	<!--事务管理器 相当于aspect -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="productServiceMethods" expression="execution(* com.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
+	</aop:config>
+	<!-- 对象事务的具体实现 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!--指定哪一些方法需要被事务处理 -->
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="login*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="Select*" propagation="REQUIRED" />
+			<!-- <tx:method name="findAll" propagation="REQUIRED"/> -->
+			<tx:method name="someOtherBusinessMethod" propagation="REQUIRES_NEW" />
+			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="userAction" class="com.action.UserAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="userDao" class="com.dao.ipml.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userService" class="com.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<!-- 角色 -->
+	<bean id="roleAction" class="com.action.RoleAction">
+		<property name="roleService" ref="roleService"></property>
+	</bean>
+	<bean id="roleService" class="com.service.impl.RoleServiceImpl">
+		<property name="roleDao" ref="roleDao"></property>
+	</bean>
+	<bean id="roleDao" class="com.dao.ipml.RoleDaoIpml">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+     <!-- 商品分类 -->
+	<bean id="goodsCategoryAction" class="com.action.GoodsCategoryAction">
+		<property name="goodsCategoryService" ref="goodsCategoryService"></property>
+	</bean>
+	<bean id="goodsCategoryService" class="com.service.impl.GoodsCategoryServiceImpl">
+		<property name="goodsCategoryDao" ref="goodsCategoryDao"></property>
+	</bean>
+	<bean id="goodsCategoryDao" class="com.dao.ipml.GoodsCategoryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+ <!-- 供应商 -->
+	<bean id="supplierAction" class="com.action.SupplierAction">
+		<property name="supplierService" ref="supplierService"></property>
+	</bean>
+	<bean id="supplierService" class="com.service.impl.SupplierServiceImpl">
+		<property name="supplierDao" ref="supplierDao"></property>
+	</bean>
+	<bean id="supplierDao" class="com.dao.ipml.SupplierDaoIpml">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 仓库 -->
+	<bean id="warehouseAction" class="com.action.WarehouseAction">
+		<property name="warehouseService" ref="warehouseService"></property>
+	</bean>
+	<bean id="warehouseService" class="com.service.impl.WarehouseServiceImpl">
+		<property name="warehouseDao" ref="warehouseDao"></property>
+	</bean>
+	<bean id="warehouseDao" class="com.dao.ipml.WarehouseDaoIpml">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 进货单身 -->
+	<bean id="carPaymentAction" class="com.action.CarPaymentAction">
+	<property name="carPaymentService" ref="carPaymentService"></property>
+	</bean>
+	<bean id="carPaymentDao" class="com.dao.ipml.CarPaymentDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="carPaymentService" class="com.service.impl.CarPaymentServiceImpl">
+	<property name="carPaymentDao" ref="carPaymentDao"></property>
+	</bean>
+	<!-- 入库单身 -->
+	<bean id="singlePaymentAction" class="com.action.SinglePaymentAction">
+	<property name="singlePaymentService" ref="singlePaymentService"></property>
+	</bean>
+	<bean id="singlePaymentDao" class="com.dao.ipml.SinglePaymentDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="singlePaymentService" class="com.service.impl.SinglePaymentServiceImpl">
+	<property name="singlePaymentDao" ref="singlePaymentDao"></property>
+	</bean>
+	<!--检验员  -->
+	<bean id="checkUserAction" class="com.action.CheckUserAction">
+	<property name="checkUserService" ref="checkUserService"></property>
+	</bean>
+	<bean id="checkUserDao" class="com.dao.ipml.CheckUserDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="checkUserService" class="com.service.impl.CheckUserServiceImpl">
+	<property name="checkUserDao" ref="checkUserDao"></property>
+	</bean>
+		<!--出库单  -->
+	<bean id="billOutBodyAction" class="com.action.BillOutBodyAction">
+	<property name="billOutBodyService" ref="billOutBodyService"></property>
+	</bean>
+	<bean id="billOutBodyDao" class="com.dao.ipml.BillOutBodyDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="billOutBodyService" class="com.service.impl.BillOutBodyServiceImpl">
+	<property name="billOutBodyDao" ref="billOutBodyDao"></property>
+	</bean>
+	<!--客户  -->
+	<bean id="customerAction" class="com.action.CustomerAction">
+	<property name="customerService" ref="customerService"></property>
+	</bean>
+	<bean id="customerDao" class="com.dao.ipml.CustomerDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="customerService" class="com.service.impl.CustomerServiceImpl">
+	<property name="customerDao" ref="customerDao"></property>
+	</bean>
+	<!--商品  -->
+	<bean id="goodsAction" class="com.action.GoodsAction">
+	<property name="goodsService" ref="goodsService"></property>
+	</bean>
+	<bean id="goodsDao" class="com.dao.ipml.GoodsDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="goodsService" class="com.service.impl.GoodsServiceImpl">
+	<property name="goodsDao" ref="goodsDao"></property>
+	</bean>
+	<!--销售单  -->
+	<bean id="saleAction" class="com.action.SaleAction">
+	<property name="saleService" ref="saleService"></property>
+	</bean>
+	<bean id="saleDao" class="com.dao.ipml.SaleDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="saleService" class="com.service.impl.SaleServiceImpl">
+	<property name="saleDao" ref="saleDao"></property>
+	</bean>
+	<!--退货单  -->
+	<bean id="returnBillAction" class="com.action.ReturnBillAction">
+	<property name="returnBillService" ref="returnBillService"></property>
+	</bean>
+	<bean id="returnBillDao" class="com.dao.ipml.ReturnBillDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="returnBillService" class="com.service.impl.ReturnBillServiceImpl">
+	<property name="returnBillDao" ref="returnBillDao"></property>
+	</bean>
+	<!--特价售货单  -->
+	<bean id="tsaleAction" class="com.action.TsaleAction">
+	<property name="tsaleService" ref="tsaleService"></property>
+	</bean>
+	<bean id="tsaleDao" class="com.dao.ipml.TsaleDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="tsaleService" class="com.service.impl.TsaleServiceImpl">
+	<property name="tsaleDao" ref="tsaleDao"></property>
+	</bean>
+	<!--功能-->
+	<bean id="functionAction" class="com.action.FunctionAction">
+	<property name="functionService" ref="functionService"></property>
+	</bean>
+	<bean id="functionDao" class="com.dao.ipml.FunctionDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="functionService" class="com.service.impl.FunctionServiceImpl">
+	<property name="functionDao" ref="functionDao"></property>
+	</bean>
+</beans>

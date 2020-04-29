@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="Sale" table="sale">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+          <property name="createdate" type="java.lang.String" column="createdate"/>
+	     <property name="goods" type="java.lang.String" column="goods"/>
+	      <property name="num" type="java.lang.Integer" column="num"/>
+	       <property name="price" type="java.lang.Double" column="price"/>
+	        <property name="goods1" type="java.lang.String" column="goods1"/>
+	      <property name="num1" type="java.lang.Integer" column="num1"/>
+	       <property name="price1" type="java.lang.Double" column="price1"/>
+	        <property name="goods2" type="java.lang.String" column="goods2"/>
+	      <property name="num2" type="java.lang.Integer" column="num2"/>
+	        <property name="tonum" type="java.lang.Integer" column="tonum"/>
+	       <property name="price2" type="java.lang.Double" column="price2"/>
+	        <property name="toprice" type="java.lang.Double" column="toprice"/>
+	      
+     </class>
+
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="yearReport"  namespace="/yearReport"  extends="default1">
+    <action name="add" class="com.action.YearReportAction" method="add">
+ <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="findAll" class="com.action.YearReportAction" method="findAll">
+   <result name="success">/yearReport/AllyearReport.jsp</result>
+   </action>
+   
+    <action name="delete" class="com.action.YearReportAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.YearReportAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.YearReportAction" method="findById">
+   <result name="success">/yearReport/UpYear.jsp</result>
+   </action>
+    <action name="findAll1" class="com.action.DistrictAction" method="findAll">
+      <result name="success" >/yearReport/addyearReport.jsp</result>
+  
+   </action>
+    </package> 
+</struts>

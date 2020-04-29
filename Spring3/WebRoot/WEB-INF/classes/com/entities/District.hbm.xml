@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="District" table="district">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     <property name="DistrictName" type="java.lang.String" column="districtName"/>
+	      <property name="DistrictAddress" type="java.lang.String" column="districtAddress"/>
+	       <set name="middleFloorSet" lazy="false" cascade="all">
+	       <key column="district_id"></key>
+	       <one-to-many class="MiddleFloor" />
+	       </set>
+     </class>
+
+</hibernate-mapping>

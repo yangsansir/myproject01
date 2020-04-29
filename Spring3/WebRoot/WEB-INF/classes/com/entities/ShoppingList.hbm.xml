@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="ShoppingList" table="shoppingList">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     <property name="GoodsName" type="java.lang.String" column="goodsName"/>
+	    <property name="number"  column="number"/>
+	      <property name="price"  column="price"/>
+	    <property name="goodsType" type="java.lang.String" column="goodsType"/>
+     </class>
+
+</hibernate-mapping>

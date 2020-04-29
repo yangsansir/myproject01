@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <package name="houseHoldBill"  namespace="/houseHoldBill"  extends="default1">
+   <action name="addHouseHoldBill" class="com.action.HouseHoldBillAction" method="addHouseHoldBill">
+ <result name="success" type="redirectAction">SelectAll</result>
+   </action>
+     <action name="SelectAll" class="com.action.SinglePaymentAction" method="SelectAll">
+   <result name="success">/cost/AllResiderntBill.jsp</result>
+   </action>
+   <action name="SelectAll2" class="com.action.SinglePaymentAction" method="SelectAll">
+   <result name="success">/cost/AllResiderntBill2.jsp</result>
+   </action>
+   <action name="update" class="com.action.HouseHoldBillAction" method="update">
+   <result name="success" type="redirectAction">SelectAll</result>
+   </action>
+    <action name="delete" class="com.action.SinglePaymentAction" method="delete">
+   <result name="success" type="redirectAction">SelectAll</result>
+   </action>
+    </package> 
+</struts>

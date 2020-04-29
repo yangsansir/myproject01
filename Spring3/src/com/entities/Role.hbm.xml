@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="Role" table="role">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     <property name="RoleName" type="java.lang.String" column="roleName"/>
+	     <set name="userSet" lazy="false" >
+	     <key column="role_id"></key>
+	     <one-to-many class="User"/>
+	     </set>
+	      <set name="functionSet" table="role_function" lazy="false">
+	     <key column="role_id"></key>
+	    <one-to-many class="Function"/>
+	     </set>
+     </class>
+
+</hibernate-mapping>

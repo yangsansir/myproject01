@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="repair"  namespace="/repair"  extends="default1">
+    <action name="addrepair" class="com.action.RepairAction" method="addrepair">
+  <result name="success">/success.jsp</result>
+   </action>
+   <action name="findAll" class="com.action.RepairAction" method="findAll">
+   <result name="success">/repair/AllRepair.jsp</result>
+   </action>
+    <action name="delete" class="com.action.RepairAction" method="delete">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+    <action name="update" class="com.action.RepairAction" method="update">
+   <result name="success" type="redirectAction">findAll</result>
+   </action>
+     <action name="findById" class="com.action.RepairAction" method="findById">
+   <result name="success">/repair/updateRepair.jsp</result>
+   </action>
+     <action name="findAll1" class="com.action.RepairTypeAction" method="findAll">
+   <result name="success">/repair.jsp</result>
+   </action>
+    </package> 
+</struts>

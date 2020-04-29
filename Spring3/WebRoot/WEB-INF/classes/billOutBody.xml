@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="billOutBody"  namespace="/billOutBody"  extends="default1">
+ 
+
+    <action name="findById" class="com.action.BillOutBodyAction" method="findById">
+   <result name="success">/billOutBody/UpbillOutBody.jsp</result>
+   </action>
+   <action name="findById1" class="com.action.BillOutBodyAction" method="findById">
+   <result name="success">/billOutBody/UpbillOutBody1.jsp</result>
+   </action>
+    <action name="update" class="com.action.BillOutBodyAction" method="update">
+  <result name="success" type="redirectAction">findAll</result>
+   </action>
+      <action name="update1" class="com.action.BillOutBodyAction" method="update">
+    <result name="success" type="redirectAction">findAll1</result>
+   </action>
+    <action name="delete" class="com.action.BillOutBodyAction" method="delete">
+ <result name="success" type="redirectAction">findAll</result>
+   </action>
+   
+     <action name="findAll" class="com.action.BillOutBodyAction" method="findAll">
+   <result name="success">/billOutBody/AllbillOutBody.jsp</result>
+   
+   </action>
+     <action name="addbillOutBody" class="com.action.BillOutBodyAction" method="addbillOutBody">
+   <result name="success" type="redirectAction">findAll</result>
+   
+   </action>
+    <action name="add" class="com.action.BillOutBodyAction" method="add">
+   <result name="success">/billOutBody/addbillOutBody.jsp</result>
+   </action>
+    </package> 
+</struts>

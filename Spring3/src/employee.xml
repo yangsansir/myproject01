@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="employee"  namespace="/employee"  extends="default1">
+   <action name="addEmployee" class="com.action.EmployeeAction" method="addEmployee">
+   <result name="success">/role/success.jsp</result>
+   </action>
+     <action name="findById" class="com.action.EmployeeAction" method="findById">
+   <result name="success">/employee/EmployeeUpdate.jsp</result>
+   </action>
+     <action name="update" class="com.action.EmployeeAction" method="update">
+   <result name="success">/employee/EmployeeLogin.jsp</result>
+   </action>
+  <action name="login" class="com.action.EmployeeAction" method="login">
+   <result name="success" type="redirectAction">${nextPose}</result>
+   <result name="error">/employee/error.jsp</result>
+   </action>
+   <action name="findAll" class="com.action.EmployeeAction" method="findAll">
+   <result name="success">/employee/AllEmployee.jsp</result>
+   </action>
+    <action name="Query" class="com.action.EmployeeAction" method="Query">
+   <result name="success">/employee/QueryAllEmployee.jsp</result>
+   </action>
+    <action name="delete" class="com.action.EmployeeAction" method="delete">
+   <result type="redirectAction">findAll</result>
+   </action>
+   <!--  -->
+   <action name="admin" >
+   <result name="success">/employee/Admin_success.jsp</result>
+   </action>
+   <action name="baoan" >
+   <result name="success">/employee/Baoan_success.jsp</result>
+   </action>
+   <action name="caiwu" >
+   <result name="success">/employee/CaiWu_success.jsp</result>
+   </action>
+     <action name="weixiu" >
+   <result name="success">/employee/Weixiu_success.jsp</result>
+   </action>
+    </package> 
+</struts>

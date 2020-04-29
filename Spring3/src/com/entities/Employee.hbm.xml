@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="Employee" table="employee">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	     <property name="LoginName" type="java.lang.String" column="loginName"/>
+	      <property name="Password" type="java.lang.String" column="password"/>
+	         <property name="RealName" type="java.lang.String" column="realName"/>
+	       <property name="Sex" type="java.lang.String" column="sex"/>
+	          <property name="Contact" type="java.lang.String" column="contact"/>
+	       	       <property name="remarks" type="java.lang.String" column="remarks"/>
+	       
+	       <many-to-one name="role" class="Role" column="role_id" lazy="false"></many-to-one>
+     </class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entities">
+	 <class name="Goods" table="goods">
+		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+	   
+	       <property name="goodsName" type="java.lang.String" column="goodsName"/>
+	         <property name="goodsNickName" type="java.lang.String" column="goodsNickName"/>
+	           <property name="producer" type="java.lang.String" column="producer"/>
+	             <property name="salePrice" type="java.lang.String" column="salePrice"/>
+	                  <property name="productDate" type="java.lang.String" column="productDate"/>
+	                   <property name="endDate" type="java.lang.String" column="endDate"/>
+	      <many-to-one name="goodsCategory" class="GoodsCategory" column="goodsCategory_id" lazy="false"></many-to-one>
+     </class>
+
+</hibernate-mapping>
